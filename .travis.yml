@@ -3,7 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker build  -t anreddy/django-polls .
+  - docker build  -t anreddy/django-polls -f c:/Users/anred/dev/trydjango/myenv/Dockerfile
+
 
 script:
   - docker run anreddy/django-polls  python manage.py test polls
