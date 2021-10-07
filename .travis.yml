@@ -5,7 +5,7 @@ services:
 before_install:
   - docker build  -t anreddy/django-polls .
 
-script:
-  - docker run anreddy/django-polls  python manage.py test polls
+#script:
+ # - docker run anreddy/django-polls  python manage.py test polls
 
 
