@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<style>
+ li {
+     text-align:center;
+     color:blue;
+}
+</style>
+<h1>Fabonacci number </h1>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'mortagage/style.css' %}">
+</head>
+<body>
+
+<li> Fabonacci number sequence of {{number}}  is 
+ {% for item in Fabonacci_number %}
+          {{item}}  
+        {% endfor%} </li>
+  <!{{Fabonacci_number}}>
+</body>
+</html>
+
