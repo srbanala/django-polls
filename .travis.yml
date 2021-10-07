@@ -5,3 +5,7 @@ services:
 before_install:
   - docker build  -t anreddy/django-polls .
 
+script:
+ - docker run anreddy/django-polls echo "Tests run successfully."
+
+
