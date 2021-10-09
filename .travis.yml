@@ -17,8 +17,9 @@ deploy:
   bucket-path: "django-polls"
   on:
     branch: master
-  access_key_id: "$Aws_Access_Key"
-  secret_access_key: "$Aws_Secret_Key"
+  access_key_id: $Aws_Access_key
+  secret_access_key:
+    secure: "Aws_Secret_key"
 
 
 
