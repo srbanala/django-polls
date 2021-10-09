@@ -33,7 +33,7 @@ class Monthly_Expenses(models.Model):
 	def __int__(self):
 		return self.item
 
-class Fabonacci_number(models.Model):
+class Fibonacci_number(models.Model):
 	id = models.AutoField(primary_key=True)
 	number =models.IntegerField()
 
