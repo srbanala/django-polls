@@ -25,13 +25,12 @@ SECRET_KEY = 'w15^xuz%3d)34b46#bdwr+muu9wt-*%1qc+pv&h5farun3o0om'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djangopolls-env.eba-zgbiiuqr.us-east-1.elasticbeanstalk.com',]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'djangopolls-env.eba-zgbiiuqr.us-east-1.elasticbeanstalk.com',
     'mortagage.apps.MortagageConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
