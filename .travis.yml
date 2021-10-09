@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
   app: "django-polls"
-  env: "django-polls-env"
+  env: "djangopolls-env"
   bucket_name: "elasticbeanstalk-us-east-1-298693496319"
   bucket_path: "django-polls"
   on:
