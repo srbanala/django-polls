@@ -30,7 +30,7 @@ class Monthly_Expenses_Raw_Form(forms.Form):
 	price =forms.FloatField()
 	pub_date  =forms.DateField()
 
-class Fabonacci_Form(forms.Form):
+class Fibonacci_Form(forms.Form):
 	number=forms.IntegerField()
 
 class media_form(forms.ModelForm):

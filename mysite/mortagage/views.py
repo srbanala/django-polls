@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate,login
 import datetime
 # Create your views here.
 from .models import monthly_payment,Remaining_Balance,Monthly_Expenses,Image_Upload
-from .forms import Monthly_paymentForm, Monthly_payment_raw_Form,Remaining_Balance_Raw_Form,Monthly_Expenses_Raw_Form,Fabonacci_Form,media_form,FileUpload_Form,FileFieldForm,Image_Upload_Form,Login_Form,ContactForm
+from .forms import Monthly_paymentForm, Monthly_payment_raw_Form,Remaining_Balance_Raw_Form,Monthly_Expenses_Raw_Form,Fibonacci_Form,media_form,FileUpload_Form,FileFieldForm,Image_Upload_Form,Login_Form,ContactForm
 
 from  .my_programs.scripts import *
 
@@ -216,11 +216,11 @@ def Yearly_Mortagage_Balance(request):
 	return render(request,'mortagage/yearly_balance.html',context)
 
 
-def fabonacci_number(request):
+def fibonacci_number(request):
 	print(request.user)
-	my_form=Fabonacci_Form()
+	my_form=Fibonacci_Form()
 	if request.method=='POST':
-		my_form=Fabonacci_Form(request.POST)
+		my_form=Fibonacci_Form(request.POST)
 		if my_form.is_valid():
 			n=my_form.cleaned_data['number']
 			output_list=[]
@@ -232,11 +232,11 @@ def fabonacci_number(request):
 				else:
 					output_list.append(output_list[k-2]+output_list[k-1])
 				print(output_list)
-			return render(request,'mortagage/fabonacci_number.html',{'Fabonacci_number':output_list,'number':n})
+			return render(request,'mortagage/fabinacci_number.html',{'Fibonacci_number':output_list,'number':n})
 		else:
 			print(my_form.errors)
 	context={'form':my_form}
-	return render(request,'mortagage/fabonacci.html',context)
+	return render(request,'mortagage/fibonacci.html',context)
 	
 
 
