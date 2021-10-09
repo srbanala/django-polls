@@ -8,4 +8,18 @@ before_install:
 script:
  - docker run anreddy/django-polls echo "Tests run successfully."
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "django-polls"
+  env: "django-polls-env"
+  bucket-name: "elasticbeanstalk-us-east-1-298693496319"
+  bucket-path: "django-polls"
+  on:
+    branch: master
+    access_key_id=$Aws_Access_Key
+    secret_access_key="$Aws_Secret_Key"
+
+
+
 
