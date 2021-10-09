@@ -15,6 +15,6 @@ RUN python -m pip install --user ./mysite/django-polls/dist/django-polls-0.1.tar
 # Run Default Command.
 EXPOSE 8080
 
-#CMD ["python" ,"./mysite/manage.py","runserver","0:8080"]
+#CMD ["python" ,"./mysite/manage.py","runserver","127.0.0.1:8080"]
 
 CMD ["python" ,"./mysite/manage.py","runserver"]
