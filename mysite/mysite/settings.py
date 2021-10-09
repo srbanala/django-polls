@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'djangopolls-env.eba-zgbiiuqr.us-east-1.elasticbeanstalk.com',
     'mortagage.apps.MortagageConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
