@@ -13,8 +13,8 @@ deploy:
   region: "us-east-1"
   app: "django-polls"
   env: "django-polls-env"
-  bucket-name: "elasticbeanstalk-us-east-1-298693496319"
-  bucket-path: "django-polls"
+  bucket_name: "elasticbeanstalk-us-east-1-298693496319"
+  bucket_path: "django-polls"
   on:
     branch: master
   access_key_id: $Aws_Access_key
