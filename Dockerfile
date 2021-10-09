@@ -1,7 +1,7 @@
 # Specify base image 
 
 FROM python:alpine
-EXPOSE 80
+EXPOSE 90
 # Install dependenies for application
 WORKDIR ./django-polls/dist
 
