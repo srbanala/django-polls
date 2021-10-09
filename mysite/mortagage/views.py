@@ -232,7 +232,7 @@ def fibonacci_number(request):
 				else:
 					output_list.append(output_list[k-2]+output_list[k-1])
 				print(output_list)
-			return render(request,'mortagage/fibinacci_number.html',{'Fibonacci_number':output_list,'number':n})
+			return render(request,'mortagage/fibonacci_number.html',{'Fibonacci_number':output_list,'number':n})
 		else:
 			print(my_form.errors)
 	context={'form':my_form}
