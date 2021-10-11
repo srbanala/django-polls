@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build  -t anreddy/django-polls .
+  - docker build  -t anreddy/django-polls -f Dockerfile.dev .
 
 script:
  - docker run anreddy/django-polls python3 ./mysite/manage.py test run
@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
   app: "django-polls"
-  env: "djangopolls-env"
+  env: "djangopolls-env-1"
   bucket_name: "elasticbeanstalk-us-east-1-298693496319"
   bucket_path: "django-polls"
   on:
