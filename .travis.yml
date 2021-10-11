@@ -6,7 +6,7 @@ before_install:
   - docker build  -t anreddy/django-polls .
 
 script:
- - docker run anreddy/django-polls echo "Tests run successfully."
+ - docker run anreddy/django-polls python3 ./mysite/manage.py test run
 
 deploy:
   provider: elasticbeanstalk
