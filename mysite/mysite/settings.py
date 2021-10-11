@@ -25,8 +25,8 @@ SECRET_KEY = 'w15^xuz%3d)34b46#bdwr+muu9wt-*%1qc+pv&h5farun3o0om'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangopolls-env.eba-zgbiiuqr.us-east-1.elasticbeanstalk.com',]
-
+ALLOWED_HOSTS = ['djangopolls-env-1.eba-kv7qqzwd.us-east-1.elasticbeanstalk.com',]
+#ALLOWED_HOSTS=[]
 
 # Application definition
 
@@ -75,24 +75,25 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+#}
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+	'USER': 'postgres',
+	'PASSWORD':'welcome1',
+	#'HOST':'127.0.0.1',
+        'HOST': 'postgres',
+	'PORT':'5432',
     }
 }
-
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'postgres',
-#	'USER': 'postgres',
-#	'PASSWORD':'welcome1',
-#	'HOST':'127.0.0.1',
-#	'PORT':'5432',
-#    }
-#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
