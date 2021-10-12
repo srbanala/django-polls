@@ -90,7 +90,8 @@ DATABASES = {
 	'USER': 'postgres',
 	'PASSWORD':'welcome1',
 	#'HOST':'127.0.0.1',
-    'HOST': 'postgres',
+   # 'HOST': 'postgres',
+    'HOST':'django-polls.chec4zibv9si.us-east-1.rds.amazonaws.com',
 	'PORT':'5432',
     }
 }
