@@ -23,7 +23,7 @@ deploy:
   bucket_name: "elasticbeanstalk-us-east-1-298693496319"
   bucket_path: "django-polls"
   on:
-    branch: master
+    branch: feature
   access_key_id: $Aws_Access_key
   secret_access_key: $Aws_Secret_Key
 
