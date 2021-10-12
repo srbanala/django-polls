@@ -1,11 +1,18 @@
 {
   "AWSEBDockerrunVersion": 2,
   "ContainerDefinitions": [
-    {"name": "django-polls",
-    "image": "anreddy/django-polls",
-    "hostname": "django-polls",
-    "essential": true,
+    {
+      "name": "django-polls",
+      "image": "anreddy/django-polls",
+      "hostname": "django-polls",
+      "essential": true,
+      "portMapppings": [
+        {
+          "hostport": 8080,
+          "container": 8080
+        }
+      ],
       "memory": 128
-    ]}
+    }
   ]
 }
