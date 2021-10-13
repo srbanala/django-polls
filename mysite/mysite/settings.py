@@ -25,7 +25,7 @@ SECRET_KEY = 'w15^xuz%3d)34b46#bdwr+muu9wt-*%1qc+pv&h5farun3o0om'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Djangopolls-env.eba-iy7immwk.us-east-1.elasticbeanstalk.com',]
+ALLOWED_HOSTS = ['Djangopolls-env.eba-iy7immwk.us-east-1.elasticbeanstalk.com','Djangopolls-env.eba-fp6vsav4.us-east-1.elasticbeanstalk.com',]
 #ALLOWED_HOSTS=[]
 
 # Application definition
