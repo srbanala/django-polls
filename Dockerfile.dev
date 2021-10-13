@@ -28,3 +28,6 @@ EXPOSE 8080
 # Run Default Command.
 
 CMD ["python3","./mysite/manage.py","runserver","0:8080"]
+CMD ["python3","./mysite/manage.py","makemigrations"]
+CMD ["python3","./mysite/manage.py","migrate"]
+
