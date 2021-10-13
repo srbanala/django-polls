@@ -4,7 +4,6 @@
       "name": "django-polls",
       "image": "anreddy/django-polls",
       "hostName": "django-polls",
-      "memory": 128,
       "essential": true,
       "portMapppings": [
       {"hostPort": 80,
