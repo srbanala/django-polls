@@ -7,7 +7,10 @@
     "memory": 128,
     "essential": true,
     "portMappings": [{
-      "hostPort": 8080,
+      "hostPort": 80,
+      "containerPort": 8080
+    },{
+      "hostPort": 443,
       "containerPort": 8080
     }]
   }]
