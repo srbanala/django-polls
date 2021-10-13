@@ -27,6 +27,7 @@ RUN python3 -m pip install --user ./mysite/django-polls/dist/django-polls-0.1.ta
 EXPOSE 8080
 # Run Default Command.
 
-
 CMD ["python3","./mysite/manage.py","runserver","0:8080"]
+CMD ["python3","./mysite/manage.py","makemigrations"]
+CMD ["python3","./mysite/manage.py","migrate"]
 
