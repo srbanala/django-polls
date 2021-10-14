@@ -5,7 +5,7 @@ services:
 before_install:
   #- docker build  -t anreddy/django-polls -f Dockerfile.dev .
    - docker build  -t anreddy/polls_sqlite -f Dockerfile.dev_aws .
-   - docker build -t anreddy/nginx-image -f ./Nginx/Dockerfile.nginx
+   - docker build -t anreddy/nginx-image -f Nginx/Dockerfile.nginx
 
 script:
  #- docker run anreddy/django-polls python3 ./mysite/manage.py test run
@@ -14,7 +14,7 @@ script:
 after_success:
    #- docker build  -t anreddy/django-polls -f Dockerfile.dev .
    - docker build  -t anreddy/polls_sqlite -f Dockerfile.dev_aws .
-   - docker build -t anreddy/nginx-image -f ./Nginx/Dockerfile.nginx
+   - docker build -t anreddy/nginx-image -f Nginx/Dockerfile.nginx
    #Login to Docker cli
    - echo "$DOCKER_PASSWORD"|docker login -u "$DOCKER_ID" --password-stdin
    # Push images to docker hub.
