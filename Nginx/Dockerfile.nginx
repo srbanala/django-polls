@@ -3,4 +3,4 @@
 FROM nginx
  
 WORKDIR /usr/share/nginx/html
-COPY ./Nginx/index .
+COPY ./Nginx/index.html .
