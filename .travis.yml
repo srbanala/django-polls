@@ -20,7 +20,7 @@ after_success:
    # Push images to docker hub.
    #- docker push anreddy/django-polls
    - docker push anreddy/polls_sqlite
-   - docker pus anreddy/nginx-image
+   - docker push anreddy/nginx-image
 
 #deploy:
  # provider: elasticbeanstalk
