@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import include,path
 
 urlpatterns = [
-    path('polls/',include('polls.urls')),
-    path('mortagage/',include('mortagage.urls')),
-    path('admin/', admin.site.urls),    
+    #path('polls/',include('polls.urls')),
+    #path('mortagage/',include('mortagage.urls')),
+    #path('admin/', admin.site.urls), 
+    path('polls/polls',include('polls.urls')),
+    path('mortagage/mortagage',include('mortagage.urls')),
+    path('admin/admin', admin.site.urls),    
+]   
 ]
