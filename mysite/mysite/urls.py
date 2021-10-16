@@ -23,5 +23,4 @@ urlpatterns = [
     path('polls/polls',include('polls.urls')),
     path('mortagage/mortagage',include('mortagage.urls')),
     path('admin/admin', admin.site.urls),    
-]   
 ]
