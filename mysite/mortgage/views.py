@@ -27,7 +27,7 @@ def monthly_payment_func(request,id):
 	Monthly_due=get_object_or_404(monthly_payment,pk=id)
 	Monthly_due.payment=monthly_payment1
 	Monthly_due.save()
-	return render(request,'mortagage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
+	return render(request,'mortgage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
 
 def remaining_balance_func(request):
 	my_form=Remaining_Balance_Raw_Form()
@@ -52,7 +52,7 @@ def remaining_balance_func(request):
 				my_form.cleaned_data['amount_due']=Remaining_loan_balance
 				Remaining_Balance.objects.create(**my_form.cleaned_data)
 			print(Remaining_loan_balance)
-			return render(request,'mortagage/remaining_balance.html',{'Remaining_balance':Remaining_loan_balance})
+			return render(request,'mortgage/remaining_balance.html',{'Remaining_balance':Remaining_loan_balance})
 	
 	else:
 			print(my_form.errors)
@@ -60,7 +60,7 @@ def remaining_balance_func(request):
 	context={
 		'form':my_form
 		}
-	return render(request,'mortagage/balance.html',context)
+	return render(request,'mortgage/balance.html',context)
 
 
 
@@ -71,7 +71,7 @@ def remaining_balance_func(request):
 	#context={
 	#	'form':form
 	#	}
-	#return render(request,'mortagage/loan_details.html',context)
+	#return render(request,'mortgage/loan_details.html',context)
 
 
 def loan_details_view(request):
@@ -95,7 +95,7 @@ def loan_details_view(request):
 				monthly_payment1=principal*((r*(1+r)**n)/((1+r)**n-1))
 				my_form.cleaned_data['payment']=monthly_payment1
 				monthly_payment.objects.create(**my_form.cleaned_data)
-				return render(request,'mortagage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
+				return render(request,'mortgage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
 			#print("monthly payment:",monthly_payment1)
 			#print(my_form.cleaned_data)
 			#my_form.cleaned_data['payment']=monthly_payment1
@@ -107,7 +107,7 @@ def loan_details_view(request):
 	context={
 		'form':my_form
 		}
-	return render(request,'mortagage/loan_details.html',context)
+	return render(request,'mortgage/loan_details.html',context)
 
 def expenses_func(request):
 	my_form=Monthly_Expenses_Raw_Form
@@ -133,13 +133,13 @@ def expenses_func(request):
 			Monthly_Expenses.objects.total=Total
 			output_dict['Total']=Total
 			
-			return render(request,'mortagage/monthly_expenses.html',{'Total_monthly_expenses':output_dict})
+			return render(request,'mortgage/monthly_expenses.html',{'Total_monthly_expenses':output_dict})
 		else:
 			print(my_form.errors)
 	context={
 		'form':my_form
 		}
-	return render(request,'mortagage/monthly_expenses_detail.html',context)
+	return render(request,'mortgage/monthly_expenses_detail.html',context)
 
 
 				
@@ -155,7 +155,7 @@ def monthly_payment_func2(principal,interest,duration):
 	#Monthly_due=get_object_or_404(monthly_payment,pk=id)
 	#Monthly_due.payment=monthly_payment1
 	#Monthly_due.save()
-	return render(request,'mortagage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
+	return render(request,'mortgage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
 
 def monthly_payment_func3(request):
 	my_form=Monthly_payment_raw_Form()
@@ -176,7 +176,7 @@ def monthly_payment_func3(request):
 		output_list.append(new_list)
 		print(x)
 	print("Output list length :" ,len(output_list))
-	return render(request,'mortagage/output_detail.html',{'output':output_list})
+	return render(request,'mortgage/output_detail.html',{'output':output_list})
 	print(count)
 
 def Yearly_Mortagage_Balance(request):
@@ -206,14 +206,14 @@ def Yearly_Mortagage_Balance(request):
 				new_list.append(round(Total_payment,3))
 				output_list.append(new_list)
 				x=x+1
-			return render(request,'mortagage/yearly_balance_details.html',{'output_list':output_list,'PAYMENT':PAYMENT},)
+			return render(request,'mortgage/yearly_balance_details.html',{'output_list':output_list,'PAYMENT':PAYMENT},)
 				
 		else:
 			print(my_form.errors)
 	context={
 		'form':my_form
 		}
-	return render(request,'mortagage/yearly_balance.html',context)
+	return render(request,'mortgage/yearly_balance.html',context)
 
 
 def fibonacci_number(request):
@@ -232,11 +232,11 @@ def fibonacci_number(request):
 				else:
 					output_list.append(output_list[k-2]+output_list[k-1])
 				print(output_list)
-			return render(request,'mortagage/fibonacci_number.html',{'Fibonacci_number':output_list,'number':n})
+			return render(request,'mortgage/fibonacci_number.html',{'Fibonacci_number':output_list,'number':n})
 		else:
 			print(my_form.errors)
 	context={'form':my_form}
-	return render(request,'mortagage/fibonacci.html',context)
+	return render(request,'mortgage/fibonacci.html',context)
 	
 
 
@@ -262,12 +262,12 @@ def fibonacci_number_1(request):
 						else:
 							output_list.append(output_list[k-2]+output_list[k-1])
 						print(output_list)
-					return render(request,'mortagage/fibonacci_number.html',{'Fibonacci_number':output_list,'number':n})
+					return render(request,'mortgage/fibonacci_number.html',{'Fibonacci_number':output_list,'number':n})
 				else:
 					print(my_form.errors)
 			context={'form':my_form}
-			return render(request,'mortagage/fibonacci.html',context)
-	return render(request,'mortagage/login.html',{'form':form})
+			return render(request,'mortgage/fibonacci.html',context)
+	return render(request,'mortgage/login.html',{'form':form})
 
 ########################
 def handle_uploaded_file(f):
@@ -282,11 +282,11 @@ def media_func(request):
 		if my_form.is_valid():
 			handle_uploaded_file(request.FILES['file'])
 			name=my_form.cleaned_data['title']
-			return render(request,'mortagage/media.html',{'Name':'Uloaded sucessfully'})
+			return render(request,'mortgage/media.html',{'Name':'Uloaded sucessfully'})
 		else:
 			print(my_form.errors)
 	context={'form':my_form}
-	return render(request,'mortagage/media_initial.html',context)
+	return render(request,'mortgage/media_initial.html',context)
 
 def file_store(request):
 	my_form=FileUpload_Form()
@@ -297,17 +297,17 @@ def file_store(request):
 			my_form.save(request.FILES['File'])
 			Title=my_form.cleaned_data['Title']
 			print("Title is ",Title)
-			return render(request,'mortagage/file_upload.html',{'Title':Title,})
+			return render(request,'mortgage/file_upload.html',{'Title':Title,})
 		else:
 			print(my_form.errors)
 	my_form=FileUpload_Form()
-	return render(request,'mortagage/file_store.html',{'form':my_form})
+	return render(request,'mortgage/file_store.html',{'form':my_form})
 
 from django.views.generic.edit import FormView
 
 class FileFieldView(FormView):
 	form_class=FileFieldForm
-	template_name='mortagage/files_upload.html'
+	template_name='mortgage/files_upload.html'
 	
 	def post(self,request,*args,**kwargs):
 		from_class=self.get_form_class()
@@ -337,12 +337,12 @@ def image_func(request):
 			queryset_list=list(queryset)
 			item=queryset_list[0].Image
 			print("Item ",item)
-			#return render(request,'mortagage/media.html',{'Name':name,'Image':request.FILES['Image']})
-			return render(request,'mortagage/media.html',{'Name':name,'Image':item})
+			#return render(request,'mortgage/media.html',{'Name':name,'Image':request.FILES['Image']})
+			return render(request,'mortgage/media.html',{'Name':name,'Image':item})
 		else:
 			print(my_form.errors)
 	context={'form':my_form}
-	return render(request,'mortagage/media_initial.html',context)
+	return render(request,'mortgage/media_initial.html',context)
 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -362,7 +362,7 @@ def user_login(request):
 				return HttpResponseRedirect('http://127.0.0.1:8000/mortagage/file_store/')
 		else:
 			return HttpResponse("Your username and password didn't match.")
-	return render(request,'mortagage/login.html',{'form':my_form})
+	return render(request,'mortgage/login.html',{'form':my_form})
 
 		
 

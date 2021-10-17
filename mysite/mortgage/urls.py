@@ -2,7 +2,7 @@ from django.urls import path
 from .import views
 from django.views.generic import TemplateView
 
-app_name='mortagage'
+app_name='mortgage'
 urlpatterns=[
 	path('',views.loan_details_view,name='loan_details_view'),
 	path('balance_func/',views.remaining_balance_func,name='balance_func'),
@@ -17,5 +17,5 @@ urlpatterns=[
 	path('image_func/',views.image_func,name='image_func'),
 	path('login/',views.user_login,name='login'),
 	path('file_response/',views.file_response,name='file_response'),
-	path('contact/',TemplateView.as_view(template_name="mortagage/contact.html")),
+	path('contact/',TemplateView.as_view(template_name="mortgage/contact.html")),
 	]

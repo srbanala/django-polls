@@ -31,7 +31,7 @@ ALLOWED_HOSTS=[]
 # Application definition
 
 INSTALLED_APPS = [
-    'mortagage.apps.MortagageConfig',
+    'mortgage.apps.MortgageConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,13 +86,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-	'USER': 'postgres',
-	'PASSWORD':'welcome1',
-	#'HOST':'127.0.0.1',
-    'HOST':'postgres-db-cluster-ip-service',
-   # 'HOST': 'postgres',
-  #  'HOST':'django-polls1.chec4zibv9si.us-east-1.rds.amazonaws.com',
+       'NAME': 'postgres',
+	   'USER': 'postgres',
+	   'PASSWORD':'welcome1',
+	    #'HOST':'127.0.0.1',
+       'HOST':'postgres-db-cluster-ip-service',
+        #'HOST':'django-polls1.chec4zibv9si.us-east-1.rds.amazonaws.com',
 	'PORT':'5432',
     }
 }
