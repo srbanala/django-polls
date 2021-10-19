@@ -27,7 +27,7 @@ def monthly_payment_func(request,id):
 	Monthly_due=get_object_or_404(monthly_payment,pk=id)
 	Monthly_due.payment=monthly_payment1
 	Monthly_due.save()
-	return render(request,'mortgage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
+	return render(request,'mortgage/mortgage_detail.html' ,{'monthly_payment':monthly_payment1})
 
 def remaining_balance_func(request):
 	my_form=Remaining_Balance_Raw_Form()
@@ -95,7 +95,7 @@ def loan_details_view(request):
 				monthly_payment1=principal*((r*(1+r)**n)/((1+r)**n-1))
 				my_form.cleaned_data['payment']=monthly_payment1
 				monthly_payment.objects.create(**my_form.cleaned_data)
-				return render(request,'mortgage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
+				return render(request,'mortgage/mortgage_detail.html' ,{'monthly_payment':monthly_payment1})
 			#print("monthly payment:",monthly_payment1)
 			#print(my_form.cleaned_data)
 			#my_form.cleaned_data['payment']=monthly_payment1
@@ -155,7 +155,7 @@ def monthly_payment_func2(principal,interest,duration):
 	#Monthly_due=get_object_or_404(monthly_payment,pk=id)
 	#Monthly_due.payment=monthly_payment1
 	#Monthly_due.save()
-	return render(request,'mortgage/mortagage_detail.html' ,{'monthly_payment':monthly_payment1})
+	return render(request,'mortgage/mortgage_detail.html' ,{'monthly_payment':monthly_payment1})
 
 def monthly_payment_func3(request):
 	my_form=Monthly_payment_raw_Form()
