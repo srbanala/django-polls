@@ -30,7 +30,8 @@ before_install:
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
   - kubectl get svc
   - kubectl get nodes
- # - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=$POSTGRES_PASSWORD_TEMP
+  - kubectl delete scret postgres-password
+  - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${POSTGRES_PASSWORD_TEMP}
 
 
 
