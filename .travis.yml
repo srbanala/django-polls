@@ -4,7 +4,7 @@ services:
 
 
 before_install:
-  - docker build  -t anreddy/django-polls -f Dockerfile.dev
+  - docker build  -t anreddy/django-polls -f Dockerfile.dev .
   - docker run --rm  -it  amazon/aws-cli --version
   - docker run --rm   amazon/aws-cli s3 ls
 
