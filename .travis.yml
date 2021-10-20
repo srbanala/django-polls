@@ -26,7 +26,11 @@ before_install:
   - export AWS_SECRET_ACCESS_KEY=${Aws_Secret_Key}
   - export AWS_DEFAULT_REGION=us-east-1
   # Setup kubectl config to use the desired AWS EKS cluster
+  #- aws sts get-caller-identity
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
+  - kubectl get svc
+  - kubect get nodes
+
 
 
 script:
@@ -41,8 +45,8 @@ after_success:
   - docker push anreddy/django-polls
   - docker push anreddy/django-polls:$SHA
 
-deploy:
-  - provider: script
-    script:  bash ki8/deploy.sh
-    on:
-      branch: feature
+#deploy:
+#  - provider: script
+#    script:  bash ki8/deploy.sh
+#    on:
+#      branch: feature
