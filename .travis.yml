@@ -5,7 +5,6 @@ env:
   global:
     - GIT-SHA=$(git rev-parse HEAD)
 
-
 before_install:
   - docker build  -t anreddy/django-polls -t anreddy/django-polls:$GIT-SHA -f Dockerfile.dev .
   - docker run --rm  -it  amazon/aws-cli --version
@@ -16,7 +15,10 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
 
   # Install AWS CLI
-  # if ! [ -x "$(command -v aws)" ]; then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;unzip awscliv2.zip ; sudo ./aws/install ; fi
+  - if ! [ -x "$(command -v aws)" ];
+  - then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;
+  - unzip awscliv2.zip ; sudo ./aws/install ;
+  - fi
 
 
   # export environment variables for AWS CLI (using Travis environment variables)
@@ -39,8 +41,8 @@ after_success:
   - docker push anreddy/django-polls
   - docker push anreddy/django-polls:$GIT-SHA
 
- deploy:
-   - provider: script
-     script: bash k8s/deploy.sh
-     on:
-       branch: feature
+deploy:
+  - provider: script
+    script:  bash ki8/deploy.sh
+    on:
+      branch: feature
