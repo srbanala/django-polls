@@ -16,9 +16,9 @@ before_install:
 
   # Install AWS CLI
   - if ! [ -x "$(command -v aws)" ];
-  - then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;
-  - unzip awscliv2.zip ; sudo ./aws/install ;
-  - fi
+   then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;
+   unzip awscliv2.zip ; sudo ./aws/install ;
+   fi
 
 
   # export environment variables for AWS CLI (using Travis environment variables)
@@ -39,7 +39,7 @@ after_success:
   - echo "$DOCKER_PASSWORD"|docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub.
   - docker push anreddy/django-polls
-  - docker push anreddy/django-polls:$GIT-SHA
+  - docker push anreddy/django-polls:$SHA
 
 deploy:
   - provider: script
