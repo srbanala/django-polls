@@ -16,10 +16,7 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
 
     # Install AWS CLI
-  - if ! [ -x "$(command -v aws)" ];
-  - then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;
-  - unzip awscliv2.zip ; sudo ./aws/install ;
-  - fi
+  - if ! [ -x "$(command -v aws)" ]; then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;unzip awscliv2.zip ; sudo ./aws/install ; fi
 
 
       # export environment variables for AWS CLI (using Travis environment variables)
