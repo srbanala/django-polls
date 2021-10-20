@@ -44,7 +44,7 @@ after_success:
    - provider: script
      script: bash k8s/deploy.sh
      on:
-       branch: master
+       branch: feature
 
 
 
