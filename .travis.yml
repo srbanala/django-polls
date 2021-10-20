@@ -31,16 +31,24 @@ before_install:
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
   - kubectl get svc
   - kubectl get nodes
-  - kubectl delete secret postgres-password
-  - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${password_postgres}
+
+  ### One Time setup ###
+   #- kubectl delete secret postgres-password
+ # - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${password_postgres}
   #- kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${POSTGRES_PASSWORD_TEMP}
 
   ### To delete existing deployments
 
-  - kubectl delete deployment polls-deployment
-  - kubectl delete deployment postgres-deployment
-  - kubectl delete deployment pgadmin-deployment
+  #- kubectl delete deployment polls-deployment
+  #- kubectl delete deployment postgres-deployment
+  #- kubectl delete deployment pgadmin-deployment
 
+### AWS load balancer for ingress
+  - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/aws/deploy.yaml
+ # installing helm to nginx ingress
+  #- curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+  #- chmod 700 get_helm.sh
+  #- ./get_helm.sh
 
 
 
