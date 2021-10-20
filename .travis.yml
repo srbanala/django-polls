@@ -34,7 +34,7 @@ before_install:
 
 
 script:
-  - docker run anreddy/django-polls python3 ./mysite/manage.py test run
+ # - docker run anreddy/django-polls python3 ./mysite/manage.py test run
 
 
 after_success:
