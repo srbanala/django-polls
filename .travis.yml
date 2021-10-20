@@ -6,7 +6,7 @@ env:
     - SHA=$(git rev-parse HEAD)
 
 before_install:
-  - docker build  -t anreddy/django-polls -t anreddy/django-polls:$SHA -f Dockerfile.dev .
+  #- docker build  -t anreddy/django-polls -t anreddy/django-polls:$SHA -f Dockerfile.dev .
   - docker run --rm  -it  amazon/aws-cli --version
 
   #INstall kubernetes cli
@@ -29,7 +29,7 @@ before_install:
   #- aws sts get-caller-identity
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
   - kubectl get svc
-  - kubect get nodes
+  - kubectl get nodes
 
 
 
