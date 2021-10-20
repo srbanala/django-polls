@@ -33,6 +33,7 @@ before_install:
   - kubectl get nodes
   - kubectl delete secret postgres-password
   - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${password_postgres}
+  #- kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${POSTGRES_PASSWORD_TEMP}
   - kubectl delete deployment polls-deployment
   - kubectl delete deployment postgres-deployment
   - kubectl delete deployment pgadmin-deployment
@@ -50,7 +51,7 @@ after_success:
   - echo "$DOCKER_PASSWORD"|docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub.
   - docker push anreddy/django-polls
-  #- docker push anreddy/django-polls:$SHA
+  - docker push anreddy/django-polls:$SHA
 
 deploy:
   - provider: script
