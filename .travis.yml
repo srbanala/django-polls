@@ -48,6 +48,6 @@ after_success:
 
 deploy:
   - provider: script
-    script:  bash ki8/deploy.sh
+    script:  bash k8s/deploy.sh
     on:
       branch: feature
