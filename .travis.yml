@@ -30,6 +30,7 @@ before_install:
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
   - kubectl get svc
   - kubectl get nodes
+  - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=$POSTGRES_PASSWORD_TEMP
 
 
 
@@ -42,8 +43,8 @@ after_success:
   # Login to Docker cli
   - echo "$DOCKER_PASSWORD"|docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub.
-  - docker push anreddy/django-polls
-  - docker push anreddy/django-polls:$SHA
+  #- docker push anreddy/django-polls
+  #- docker push anreddy/django-polls:$SHA
 
 deploy:
   - provider: script
