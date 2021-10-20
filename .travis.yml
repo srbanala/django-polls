@@ -28,8 +28,8 @@ before_install:
   # Setup kubectl config to use the desired AWS EKS cluster
   #- aws sts get-caller-identity
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
-  - kubectl get svc
-  - kubectl get nodes
+  - /usr/local/bin/kubectl get svc
+  - /usr/local/bin/kubectl get nodes
 
 
 
