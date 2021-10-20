@@ -6,7 +6,7 @@ env:
     - SHA=$(git rev-parse HEAD)
 
 before_install:
-  - docker build  -t anreddy/django-polls -t anreddy/django-polls:$SHA -f Dockerfile.dev .
+ # - docker build  -t anreddy/django-polls -t anreddy/django-polls:$SHA -f Dockerfile.dev .
   - docker run --rm  -it  amazon/aws-cli --version
 
   #INstall kubernetes cli
@@ -30,12 +30,13 @@ before_install:
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
   - kubectl get svc
   - kubectl get nodes
-  #- kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=$POSTGRES_PASSWORD_TEMP
+  - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=$POSTGRES_PASSWORD_TEMP
+ 
 
 
 
 script:
-  - docker run anreddy/django-polls python3 ./mysite/manage.py test run
+ # - docker run anreddy/django-polls python3 ./mysite/manage.py test run
 
 
 after_success:
@@ -44,7 +45,7 @@ after_success:
   - echo "$DOCKER_PASSWORD"|docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub.
   - docker push anreddy/django-polls
-  - docker push anreddy/django-polls:$SHA
+  #- docker push anreddy/django-polls:$SHA
 
 deploy:
   - provider: script
