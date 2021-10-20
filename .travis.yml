@@ -3,10 +3,10 @@ services:
   - docker
 env:
   global:
-    - GIT-SHA=$(git rev-parse HEAD)
+    - SHA=$(git rev-parse HEAD)
 
 before_install:
-  - docker build  -t anreddy/django-polls -t anreddy/django-polls:$GIT-SHA -f Dockerfile.dev .
+  - docker build  -t anreddy/django-polls -t anreddy/django-polls:$SHA -f Dockerfile.dev .
   - docker run --rm  -it  amazon/aws-cli --version
 
   #INstall kubernetes cli
