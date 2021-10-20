@@ -17,17 +17,17 @@ before_install:
 
     # Install AWS CLI
   - if ! [ -x "$(command -v aws)" ];
-then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;
-unzip awscliv2.zip ;
-sudo ./aws/install ;
-fi
+  - then curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" ;
+  - unzip awscliv2.zip ; sudo ./aws/install ;
+  - fi
+
 
       # export environment variables for AWS CLI (using Travis environment variables)
-      - export AWS_ACCESS_KEY_ID=${Aws_Access_key}
-      - export AWS_SECRET_ACCESS_KEY=${Aws_Secret_Key}
-      - export AWS_DEFAULT_REGION=us-east-1
+  - export AWS_ACCESS_KEY_ID=${Aws_Access_key}
+  - export AWS_SECRET_ACCESS_KEY=${Aws_Secret_Key}
+  - export AWS_DEFAULT_REGION=us-east-1
       # Setup kubectl config to use the desired AWS EKS cluster
-      - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
+  - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
 
 
 script:
