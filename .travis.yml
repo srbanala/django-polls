@@ -28,13 +28,13 @@ before_install:
   # Setup kubectl config to use the desired AWS EKS cluster
   #- aws sts get-caller-identity
   - aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name multi-cluster
-  - /usr/local/bin/kubectl get svc
-  - /usr/local/bin/kubectl get nodes
+  - kubectl get svc
+  - kubectl get nodes
 
 
 
 script:
- # - docker run anreddy/django-polls python3 ./mysite/manage.py test run
+  #- docker run anreddy/django-polls python3 ./mysite/manage.py test run
 
 
 after_success:
@@ -45,8 +45,8 @@ after_success:
   - docker push anreddy/django-polls
   - docker push anreddy/django-polls:$SHA
 
-#deploy:
-#  - provider: script
-#    script:  bash ki8/deploy.sh
-#    on:
-#      branch: feature
+deploy:
+  - provider: script
+    script:  bash ki8/deploy.sh
+    on:
+      branch: feature
