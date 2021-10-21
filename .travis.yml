@@ -44,7 +44,7 @@ before_install:
   #- kubectl delete deployment pgadmin-deployment
 
 ### AWS load balancer for ingress
-  - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/aws/deploy.yaml
+ # - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/aws/deploy.yaml
  # installing helm to nginx ingress
   #- curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
   #- chmod 700 get_helm.sh
