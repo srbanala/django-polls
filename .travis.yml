@@ -35,7 +35,7 @@ before_install:
   ### One Time setup ###
    #- kubectl delete secret postgres-password
  # - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${password_postgres}
-  - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${POSTGRES_PASSWORD_TEMP}
+ # - kubectl create secret generic postgres-password --from-literal POSTGRES_PASSWORD=${POSTGRES_PASSWORD_TEMP}
 
   ### To delete existing deployments
 
