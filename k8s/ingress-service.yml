@@ -38,17 +38,18 @@ spec:
   rules:
     - http:
         paths:
-          - path: /xyz/?(.*)
+          #- path: /xyz/?(.*)
+          - path: /?(.*)
             pathType: Prefix
             backend:
               service:
                 name: polls-cluster-ip-service
                 port:
                   number: 8080
-          - path: /?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: pgadmin-cluster-ip-service
-                port:
-                  number: 5050
+#          - path: /?(.*)
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: pgadmin-cluster-ip-service
+#                port:
+#                  number: 5050
